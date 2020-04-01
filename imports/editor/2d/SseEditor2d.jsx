@@ -7,6 +7,7 @@ import SsePointerTool from "./tools/SsePointerTool"
 import SseCutTool from "./tools/SseCutTool";
 import SsePolygonTool from "./tools/SsePolygonTool";
 import SseRectangleTool from "./tools/SseRectangleTool";
+import SseCircleTool from "./tools/SseCircleTool";
 import SseFloodTool from "./tools/SseFloodTool";
 import ImageFilters from "canvas-filters";
 import SseUndoRedo2d from "./SseUndoRedo2d";
@@ -871,6 +872,7 @@ export default class SseEditor2d extends React.Component {
 
         this.cutTool.remove();
         this.rectangleTool.remove();
+        this.circleTool.remove();
         this.polygonTool.remove();
         this.snapIndicator = this.snapColor = this.snapPoint = this.snapSegment = null;
         this.setCurrentSample(null);
@@ -989,6 +991,7 @@ export default class SseEditor2d extends React.Component {
         this.onMsg("cut", () => this.cutTool.activate());
         this.onMsg("polygon", () => this.polygonTool.activate());
         this.onMsg("rectangle", () => this.rectangleTool.activate());
+        this.onMsg("circle", () => this.circleTool.activate());
         this.onMsg("flood", () => this.floodTool.activate());
 
 
@@ -1056,6 +1059,7 @@ export default class SseEditor2d extends React.Component {
         this.pointerTool = new SsePointerTool(this);
         this.cutTool = new SseCutTool(this);
         this.rectangleTool = new SseRectangleTool(this);
+        this.circleTool = new SseCircleTool(this);
         this.floodTool = new SseFloodTool(this);
         $(window).on('resize', this.resizeCanvas.bind(this));
 

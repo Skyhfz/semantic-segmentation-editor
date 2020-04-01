@@ -2,7 +2,7 @@ import React from 'react';
 import SseToolbar from "../../common/SseToolbar";
 import {
     ArrangeBringForward, ArrangeSendBackward, AutoFix, CallMerge, CheckOutline, ContentCut, CropLandscape,
-    CursorDefaultOutline, DeleteForever, Download, Json, Looks, Redo, Undo, VectorPolygon
+    CursorDefaultOutline, DeleteForever, Download, Json, Looks, Redo, Undo, VectorPolygon, VectorCircle
 } from 'mdi-material-ui';
 import SseBranding from "../../common/SseBranding";
 
@@ -15,6 +15,7 @@ export default class SseToolbar2d extends SseToolbar {
         this.addCommand("pointerCommand", "Manipulation Tool", 1, "Alt", "pointer", CursorDefaultOutline);
         this.addCommand("cutCommand", "Cut/Expand Tool", 1, "C", "cut", ContentCut, "disabled");
         this.addCommand("rectangleCommand", "Rectangle Tool", 1, "R", "rectangle", CropLandscape);
+        this.addCommand("circleCommand", "Circle Tool", 1, "C", "circle", VectorCircle);
         this.addCommand("polygonCommand", "Polygon Tool", 1, "P", "polygon", VectorPolygon);
         this.addCommand("magicCommand", "Magic Tool", 1, "A", "flood", AutoFix);
         this.addCommand("deleteCommand", "Delete Selection", false, "Del", "delete", DeleteForever, "disabled");
@@ -43,6 +44,7 @@ export default class SseToolbar2d extends SseToolbar {
                     {this.renderCommand("cutCommand")}
                 </div>
                 <div className="group">
+                    {this.renderCommand("circleCommand")}
                     {this.renderCommand("rectangleCommand")}
                     {this.renderCommand("polygonCommand")}
                     {this.renderCommand("magicCommand")}

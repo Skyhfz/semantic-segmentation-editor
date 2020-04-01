@@ -119,6 +119,7 @@ export default class SseSliderPanel extends React.Component {
         this.onMsg("flood", () => this.setState({visiblePanel: "flood"}));
         this.onMsg("polygon", () => this.setState({visiblePanel: ""}));
         this.onMsg("rectangle", () => this.setState({visiblePanel: ""}));
+        this.onMsg("circle", () => this.setState({visiblePanel: ""}));
         this.onMsg("pointer", () => this.setState({visiblePanel: ""}));
         this.onMsg("sse-image-loaded", () => this.resetAll());
 
